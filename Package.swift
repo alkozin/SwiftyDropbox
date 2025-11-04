@@ -9,7 +9,7 @@ let package = Package(
     name: "SwiftyDropbox",
     platforms: [
         .macOS(.v10_13),
-        .iOS(.v11),
+        .iOS(.v14),
     ],
     products: [
         .library(name: "SwiftyDropbox", targets: ["SwiftyDropbox"]),
