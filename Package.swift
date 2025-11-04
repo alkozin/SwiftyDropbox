@@ -15,9 +15,17 @@ let package = Package(
         .library(name: "SwiftyDropbox", targets: ["SwiftyDropbox"]),
         .library(name: "SwiftyDropboxObjC", targets: ["SwiftyDropboxObjC"]),
     ],
+    dependencies: [
+        .package(url: "https://github.com/The-Wand/Wand.git", .upToNextMajor(from: "2.0.11") ),
+        .package(url: "https://github.com/The-Wand/Foundation.git", .upToNextMajor(from: "2.0.11") ),
+    ],
     targets: [
         .target(
             name: "SwiftyDropbox",
+            dependencies: [
+                "Wand",
+                .product(name: "WandFoundation", package: "Foundation")
+            ],
             path: "Source/SwiftyDropbox",
             resources: [.process("PrivacyInfo.xcprivacy")]
         ),
